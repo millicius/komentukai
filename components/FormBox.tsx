@@ -11,7 +11,7 @@ function FormBox() {
 
     const collRef = collection(db, 'comments')
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: { preventDefault: () => void }) => {
         e.preventDefault()
         await addDoc(collRef, { name, text, createdAt: serverTimestamp() })
         setName('')
